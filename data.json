@@ -1,0 +1,121 @@
+{
+    "name": "Hudson Mathew",
+    "education": {
+      "degree": "BCA",
+      "institution": "Don Bosco College of Arts and Science, Keelaeral",
+      "year": "2022–2025"
+    },
+    "summary": "BCA graduate with a strong foundation in Python development, full-stack web development, and data analysis. Experienced in building scalable web applications using Django, HTML, CSS, JavaScript, Bootstrap, and SQL.",
+    "internship": {
+      "role": "Full-Stack Developer Intern",
+      "company": "Postulate Info Tech Private Limited",
+      "duration": "Dec 2024 – Mar 2025",
+      "location": "Thoothukudi, Tamil Nadu, India",
+      "responsibilities": [
+        "Developed and maintained web applications",
+        "Implemented CRUD operations",
+        "Integrated relational databases",
+        "Enhanced UI/UX for improved user experience"
+      ]
+    },
+    "projects": [
+      {
+        "name": "RetroXperience",
+        "type": "Django Full-Stack Web Application",
+        "live_url": "https://retroxperience.onrender.com/",
+        "overview": "Full-stack movie browsing platform built with Python 3.11 and Django 5.2.6 following MTV architecture.",
+        "tech_stack": {
+          "backend": ["Python 3.11", "Django 5.2.6"],
+          "frontend": ["HTML", "CSS", "JavaScript"],
+          "api": ["Django Tastypie"],
+          "database": ["SQLite"],
+          "deployment": ["Render", "Gunicorn", "Whitenoise"]
+        },
+        "key_features": [
+          "Filtered and paginated movie listings",
+          "Dynamic average rating calculation using ORM (Avg)",
+          "POST-based rating submission",
+          "REST API endpoints under /api/"
+        ]
+      },
+      {
+        "name": "EpicOutlet",
+        "type": "Django Full-Stack E-Commerce Web Application",
+        "live_url": "https://epicoutlet.onrender.com/",
+        "overview": "Full-featured e-commerce platform with authentication, cart system, favorites, API integration, and Cloudinary media storage.",
+        "tech_stack": {
+          "backend": ["Python 3.11", "Django 5.2.6"],
+          "frontend": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+          "api": ["Django Tastypie"],
+          "database": ["SQLite (Dev)", "PostgreSQL/MySQL via DATABASE_URL"],
+          "media_storage": ["Cloudinary"],
+          "deployment": ["Render", "Gunicorn", "Whitenoise"]
+        },
+        "key_features": [
+          "User authentication and registration",
+          "AJAX-based cart and favorites",
+          "REST API endpoints under /api/v1/",
+          "Cloudinary media integration",
+          "Database export utilities"
+        ]
+      },
+      {
+        "name": "Weather Dashboard",
+        "type": "Frontend Web Application",
+        "overview": "API-based real-time weather dashboard built using JavaScript."
+      },
+      {
+        "name": "Spaceship Titanic",
+        "type": "Machine Learning Project",
+        "overview": "Predictive modeling project using Python, pandas, NumPy, and scikit-learn."
+      }
+    ],
+    "skills": {
+      "technical": [
+        "Python",
+        "Django",
+        "Full-Stack Development",
+        "SQL",
+        "REST API Development",
+        "Machine Learning",
+        "Microsoft Power BI"
+      ],
+      "frontend": [
+        "HTML5",
+        "CSS",
+        "JavaScript",
+        "Bootstrap"
+      ],
+      "backend_tools": [
+        "Git",
+        "GitHub",
+        "Cloudinary",
+        "Database Integration",
+        "CRUD Operations"
+      ],
+      "ui_design": [
+        "UI Design",
+        "UX Design",
+        "Web Design"
+      ],
+      "creative_multimedia": [
+        "Graphic Design",
+        "Digital Illustration",
+        "Video Editing",
+        "Adobe Photoshop",
+        "Adobe Premiere Pro",
+        "After Effects",
+        "Canva"
+      ],
+      "productivity_tools": [
+        "Microsoft Office",
+        "Microsoft Word",
+        "Microsoft PowerPoint"
+      ]
+    },
+    "seminars_conferences": [
+      "ICTMECS-2025 – Presented research on machine learning applications",
+      "ICCAIS – Presented research on machine learning applications"
+    ],
+    "focus": "Focused on combining structured backend logic with clean, responsive frontend design to deliver scalable and visually refined digital solutions."
+  }
