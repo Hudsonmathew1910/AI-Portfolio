@@ -282,5 +282,13 @@
     {
         "role": "assistant",
         "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson."
+    },
+    {
+        "role": "user",
+        "content": "Tell about hudson"
+    },
+    {
+        "role": "assistant",
+        "content": "Hudson Mathew is a BCA graduate with expertise in Python development, full-stack web development, and data analysis. He has experience building scalable web applications using Django, HTML, CSS, JavaScript, and SQL. Additionally, Hudson completed an internship as a Full-Stack Developer, where he worked on developing and maintaining web applications, implementing CRUD operations, integrating databases, and enhancing UI/UX design. He is focused on combining structured backend logic with clean and responsive frontend design to deliver scalable and visually refined digital solutions."
     }
 ]
