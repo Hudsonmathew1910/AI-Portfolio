@@ -258,5 +258,29 @@
     {
         "role": "assistant",
         "content": "I'm Hudson's portfolio assistant. How can I assist you with information about Hudson?"
+    },
+    {
+        "role": "user",
+        "content": "Hey"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. How can I assist you with information about Hudson?"
+    },
+    {
+        "role": "user",
+        "content": "http://127.0.0.1:8000/"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson."
+    },
+    {
+        "role": "user",
+        "content": "STATIC_URL = '/static/'  STATICFILES_DIRS = [     BASE_DIR / \"static\", ]  STATIC_ROOT = BASE_DIR / \"staticfiles\""
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson."
     }
 ]
