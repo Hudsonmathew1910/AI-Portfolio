@@ -290,5 +290,69 @@
     {
         "role": "assistant",
         "content": "Hudson Mathew is a BCA graduate with expertise in Python development, full-stack web development, and data analysis. He has experience building scalable web applications using Django, HTML, CSS, JavaScript, and SQL. Additionally, Hudson completed an internship as a Full-Stack Developer, where he worked on developing and maintaining web applications, implementing CRUD operations, integrating databases, and enhancing UI/UX design. He is focused on combining structured backend logic with clean and responsive frontend design to deliver scalable and visually refined digital solutions."
+    },
+    {
+        "role": "user",
+        "content": "Hello"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson. How can I assist you today?"
+    },
+    {
+        "role": "user",
+        "content": "Hahaha"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson. If you have any inquiries regarding Hudson's skills, projects, or experience, feel free to ask."
+    },
+    {
+        "role": "user",
+        "content": "OK, Tell what is special about hudson"
+    },
+    {
+        "role": "assistant",
+        "content": "Hudson stands out for his proficiency in Python, Django, full-stack web development, and data analysis. His ability to combine backend logic with frontend design results in scalable and visually refined digital solutions. Additionally, Hudson's experience in building web applications, integrating databases, and enhancing UI/UX showcases his comprehensive skill set and dedication to delivering top-notch projects."
+    },
+    {
+        "role": "user",
+        "content": "for 10 who much rate you will give to hudson's knowladge"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only provide information about Hudson's skills, experience, and projects. If you have any specific questions related to Hudson, feel free to ask."
+    },
+    {
+        "role": "user",
+        "content": "OK, tell  personal info of hudson"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson's professional skills, experience, projects, and education. If you have any inquiries related to those aspects, feel free to ask!"
+    },
+    {
+        "role": "user",
+        "content": "Hey"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson. How can I assist you today with information related to Hudson?"
+    },
+    {
+        "role": "user",
+        "content": "hey"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson. If you have any specific inquiries about Hudson's skills, projects, or experience, feel free to ask."
+    },
+    {
+        "role": "user",
+        "content": "hey"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm Hudson's portfolio assistant. I can only answer questions about Hudson. How can I assist you today with information related to Hudson?"
     }
 ]
