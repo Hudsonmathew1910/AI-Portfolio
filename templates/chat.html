@@ -43,10 +43,23 @@
         const chatBox = document.querySelector(".chat-box");
         const sendBtn = document.querySelector(".btn");
     
+        function escapeHtml(str) {
+            const div = document.createElement("div");
+            div.textContent = str;
+            return div.innerHTML;
+        }
+        function renderBotText(str) {
+            const escaped = escapeHtml(str);
+            return escaped
+                .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                .replace(/\n/g, "<br>");
+        }
         function addMessage(text, type) {
             const msg = document.createElement("div");
             msg.classList.add("message", type);
-            msg.innerHTML = `<strong>${type === "user" ? "You" : "Assistant"}:</strong> ${text}`;
+            const label = type === "user" ? "You" : "Assistant";
+            const safeText = type === "bot" ? renderBotText(text) : escapeHtml(text);
+            msg.innerHTML = `<strong>${label}:</strong> ${safeText}`;
             chatBox.appendChild(msg);
             chatBox.scrollTop = chatBox.scrollHeight;
         }
@@ -68,9 +81,14 @@
                 });
     
                 const data = await response.json();
-    
-                addMessage(data.reply, "bot");
-    
+
+                if (response.ok && data.reply != null && data.reply !== "") {
+                    addMessage(data.reply, "bot");
+                } else {
+                    const errMsg = data.error || "Something went wrong. Please try again.";
+                    addMessage(errMsg, "bot");
+                }
+
             } catch (error) {
                 addMessage("Error connecting to server.", "bot");
             }

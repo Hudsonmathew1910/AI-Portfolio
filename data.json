@@ -1,9 +1,16 @@
 {
-    "name": "Hudson Mathew",
+  "name": "Hudson Mathew",
+  "personal": {
+      "email" : "hudsonmathew2004@gmail.com",
+      "linkedin" : "Hudson-mathew-J",
+      "languages" : ["Tamil", "English"],
+      "location" : "Bangalore"
+  },
     "education": {
       "degree": "BCA",
       "institution": "Don Bosco College of Arts and Science, Keelaeral",
-      "year": "2022–2025"
+      "year": "2022–2025",
+      "score": "62%"
     },
     "summary": "BCA graduate with a strong foundation in Python development, full-stack web development, and data analysis. Experienced in building scalable web applications using Django, HTML, CSS, JavaScript, Bootstrap, and SQL.",
     "internship": {
@@ -12,6 +19,7 @@
       "duration": "Dec 2024 – Mar 2025",
       "location": "Thoothukudi, Tamil Nadu, India",
       "responsibilities": [
+        "Python Full Stack Dev",
         "Developed and maintained web applications",
         "Implemented CRUD operations",
         "Integrated relational databases",
@@ -76,20 +84,17 @@
         "Django",
         "Full-Stack Development",
         "SQL",
-        "REST API Development",
         "Machine Learning",
         "Microsoft Power BI"
       ],
       "frontend": [
         "HTML5",
         "CSS",
-        "JavaScript",
-        "Bootstrap"
+        "JavaScript"
       ],
       "backend_tools": [
         "Git",
         "GitHub",
-        "Cloudinary",
         "Database Integration",
         "CRUD Operations"
       ],
@@ -100,16 +105,15 @@
       ],
       "creative_multimedia": [
         "Graphic Design",
-        "Digital Illustration",
         "Video Editing",
         "Adobe Photoshop",
         "Adobe Premiere Pro",
-        "After Effects",
         "Canva"
       ],
       "productivity_tools": [
         "Microsoft Office",
         "Microsoft Word",
+        "Microsoft excel",
         "Microsoft PowerPoint"
       ]
     },
