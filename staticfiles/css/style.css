@@ -155,12 +155,15 @@ body{
     }
 }
 @media(max-width:768px){
+*{
+    scroll-behavior: smooth;
+}
 
 .chat-section{
     padding: 1rem;
     align-items: flex-end;
     padding-top: 0px;
-    padding-bottom: 46px;
+    padding-bottom: 45px;
 }
 
 .heading{
@@ -180,7 +183,8 @@ body{
     padding: 1.2rem;
     font-size: 14px;
     border-radius: 1rem 1rem 0 0;
-    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    padding-bottom: 60px;
 }
 
 .message{
