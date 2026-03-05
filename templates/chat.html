@@ -17,7 +17,7 @@
 
         <div class="chat-box">
             <div class="message bot">
-                <strong>AI: </strong> Hello. I'm Hudson's AI assistant. Ask me about his skills or projects.
+                <strong>Assistant: </strong> Hello. I'm Hudson's AI assistant. Ask me about his skills or projects.
             </div>
 
             <div class="message user">
@@ -25,7 +25,7 @@
             </div>
 
             <div class="message bot">
-                <strong>AI: </strong> Hudson specializes in Python development, API integration, and full-stack project implementation.
+                <strong>Assistant: </strong> Hudson specializes in Python development, API integration, and full-stack project implementation.
             </div>
         </div>
 
@@ -42,6 +42,7 @@
         const input = document.querySelector(".chat-input-area input");
         const chatBox = document.querySelector(".chat-box");
         const sendBtn = document.querySelector(".btn");
+        const history = [];
     
         function escapeHtml(str) {
             const div = document.createElement("div");
@@ -67,23 +68,31 @@
         async function sendMessage() {
             const text = input.value.trim();
             if (!text) return;
-    
+
             addMessage(text, "user");
             input.value = "";
-    
+
             try {
                 const response = await fetch("api/chat/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({
+                        message: text,
+                        history: history
+                    })
                 });
     
                 const data = await response.json();
 
                 if (response.ok && data.reply != null && data.reply !== "") {
                     addMessage(data.reply, "bot");
+                    history.push({ role: "user", content: text });
+                    history.push({ role: "assistant", content: data.reply });
+                    if (history.length > 12) {
+                        history.splice(0, history.length - 12);
+                    }
                 } else {
                     const errMsg = data.error || "Something went wrong. Please try again.";
                     addMessage(errMsg, "bot");
