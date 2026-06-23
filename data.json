@@ -62,7 +62,34 @@
   },
 
   "projects": [
+    {
+      "name": "Hero's AI",
+      "type": "Django Full-Stack Web Application",
+      "live_url": "https://hero-ai.onrender.com/",
+      "github_url": "https://github.com/Hudsonmathew1910/hero-ai",
+      "features": [
+        "User Authentication",
+        "Multi-Model AI Fallback",
+        "Voice Chat Interface",
+        "Web Search Integration",
+        "File Upload & Analysis",
+        "AI-Powered Data Analytics Dashboard"
+      ],
+      "overview": "Full-stack intelligent AI assistant platform built with Python and Django, integrating multiple AI models with real-time voice interaction and document analysis.",
 
+      "simple_explanation": "An AI chat platform where users can talk to multiple AI models, search the web, upload files for analysis, and explore data insights — all from one interface.",
+
+      "problem_solved": "Gives users a unified AI assistant experience with multi-model reliability, so conversations never break when one model is unavailable, while also enabling voice and file-based interactions beyond standard chat.",
+
+      "tech_stack": {
+        "backend": ["Python 3.11", "Django 5.x"],
+        "frontend": ["HTML", "CSS", "JavaScript"],
+        "ai_models": ["Google Gemini", "Multi-Model Fallback System"],
+        "features_api": ["Web Search API", "Voice Recognition", "File Analysis"],
+        "database": ["SQLite"],
+        "deployment": ["Render", "Gunicorn", "Whitenoise"]
+      }
+    },
     {
       "name": "RetroXperience",
       "type": "Django Full-Stack Web Application",
