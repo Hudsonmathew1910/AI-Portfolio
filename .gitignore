@@ -12,12 +12,58 @@ venv/
 # Environment variables
 .env
 
+# Alternate virtual env names
+.venv/
+
+
 # Django
+# Database
+*.sqlite3
 db.sqlite3
+
+# staticfiles collected
 staticfiles/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+
+# Mypy
+.mypy_cache/
+
+# Logs
+logs/
+*.log
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
+
+# Editor directories and files
+.idea/
+
+# VS Code
+.vscode/
 
 # VS Code
 .vscode/
 
 # Mac
 .DS_Store
+
+# Local Django stuff:
+local_settings.py
