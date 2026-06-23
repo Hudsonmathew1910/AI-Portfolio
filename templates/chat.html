@@ -50,10 +50,33 @@
             return div.innerHTML;
         }
         function renderBotText(str) {
-            const escaped = escapeHtml(str);
-            return escaped
-                .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-                .replace(/\n/g, "<br>");
+            // Escape HTML first
+            let text = escapeHtml(str);
+
+            // Convert plain URLs (with or without protocol) into clickable links
+            function linkify(input) {
+                // Regex to match URLs like: https://..., http://..., www.domain.tld/path, domain.tld/path
+                const urlRegex = /(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[\w\-\.~:\/?#\[\]@!$&'()*+,;=%]*)?/g;
+                return input.replace(urlRegex, function (match) {
+                    // Avoid linking markdown or HTML (we operate on escaped text so safe)
+                    let href = match;
+                    if (!/^https?:\/\//i.test(href)) {
+                        href = 'https://' + href;
+                    }
+                    return `<a href="${href}" target="_blank" rel="noopener noreferrer">${match}</a>`;
+                });
+            }
+
+            // First linkify plain text
+            text = linkify(text);
+
+            // Then support simple markdown bold (**text**)
+            text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+            // Preserve newlines
+            text = text.replace(/\n/g, "<br>");
+
+            return text;
         }
         function addMessage(text, type) {
             const msg = document.createElement("div");

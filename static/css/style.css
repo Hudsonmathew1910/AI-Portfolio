@@ -92,6 +92,17 @@ body{
     border-bottom-left-radius: 0;
 }
 
+/* Clickable links inside messages */
+.message a{
+    color: var(--trd-bg-color);
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.message a:hover{
+    opacity: 0.9;
+}
+
 /* INPUT AREA */
 .chat-input-area{
     display: flex;
