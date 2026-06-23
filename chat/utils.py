@@ -134,11 +134,18 @@ def build_portfolio_summary(data: Optional[Dict[str, Any]]) -> str:
                 continue
             name = proj.get("name")
             overview = proj.get("overview", "")
+            # Include short live_url or repository link when available to help users find the project
+            links: List[str] = []
+            for link_key in ("live_url", "github_url", "repository", "repo", "url"):
+                link_val = proj.get(link_key)
+                if isinstance(link_val, str) and link_val:
+                    links.append(f"{link_key}:{link_val}")
+            link_text = f" ({'; '.join(links)})" if links else ""
             if name:
                 if overview:
-                    project_lines.append(f"- {name}: {overview[:120]}")
+                    project_lines.append(f"- {name}: {overview[:120]}{link_text}")
                 else:
-                    project_lines.append(f"- {name}")
+                    project_lines.append(f"- {name}{link_text}")
         
         if project_lines:
             parts.append("Projects: " + " ".join(project_lines))

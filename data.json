@@ -3,7 +3,7 @@
 
   "personal": {
     "email": "hudsonmathew2004@gmail.com",
-    "linkedin": "Hudson-mathew-J",
+    "linkedin": "www.linkedin.com/in/hudson-mathew-j",
     "languages": ["Tamil", "English"],
     "location": "Bangalore",
 
@@ -11,7 +11,7 @@
       "started_during": "BCA studies",
       "learning_sources": [
         "Code with Mosh Python course",
-        "PySpiders training",
+        "PySpiders - Python data science course completed",
         "Full-Stack Developer Internship at Postulate Info Tech",
         "Self learning through projects and documentation"
       ]
@@ -65,29 +65,114 @@
     {
       "name": "Hero's AI",
       "type": "Django Full-Stack Web Application",
-      "live_url": "https://hero-ai.onrender.com/",
-      "github_url": "https://github.com/Hudsonmathew1910/hero-ai",
+      "live_url": "https://hero-s-ai.alwaysdata.net/",
+      "github_url": "github.com/Hudsonmathew1910/Hero-s-AI",
+
       "features": [
-        "User Authentication",
-        "Multi-Model AI Fallback",
+        "Multi-Model AI with Automatic Fallback Chain",
+        "NLP-Based Intent Detection & Smart Routing",
+        "Coding Assistant",
         "Voice Chat Interface",
-        "Web Search Integration",
-        "File Upload & Analysis",
-        "AI-Powered Data Analytics Dashboard"
+        "Web Search with AI Summarization",
+        "File Upload & Document Analysis",
+        "Infinsight — RAG-Powered Data Analytics",
+        "Google OAuth & Email Authentication",
+        "Per-User Fernet-Encrypted API Key Storage",
+        "Persistent Chat Sessions with History",
+        "Custom Instructions & Personalization Settings",
+        "Temporary (Non-Persistent) Privacy Chat Mode",
+        "Adaptive Token Budgeting per Task Type"
       ],
-      "overview": "Full-stack intelligent AI assistant platform built with Python and Django, integrating multiple AI models with real-time voice interaction and document analysis.",
 
-      "simple_explanation": "An AI chat platform where users can talk to multiple AI models, search the web, upload files for analysis, and explore data insights — all from one interface.",
+      "overview": "Hero's AI is a production-grade, full-stack intelligent assistant platform built with Python and Django. It orchestrates multiple LLM providers — Google Gemini, OpenRouter, and Groq — through an automatic waterfall fallback engine called Baymax, ensuring near-zero downtime. The platform supports text chat, coding, voice conversation, real-time web search, document analysis, and RAG-powered data analytics via its Infinsight sub-module.",
 
-      "problem_solved": "Gives users a unified AI assistant experience with multi-model reliability, so conversations never break when one model is unavailable, while also enabling voice and file-based interactions beyond standard chat.",
+      "simple_explanation": "An all-in-one AI assistant where users can chat, write and debug code, search the web, upload documents, and analyze data files — all with the reliability of multiple AI models backing each other up.",
+
+      "problem_solved": "Single-model AI apps break when quotas run out. Hero's AI solves this with a multi-model waterfall fallback (Gemini → OpenRouter → Groq), while NLP-based routing ensures every task — coding, search, analytics, voice — is handled by the most suitable model and prompt. Sensitive API keys are encrypted server-side, and data analysis is made accessible to non-coders through plain English queries.",
+
+      "core_engine": {
+        "name": "Baymax",
+        "description": "The central AI orchestrator class that detects task intent via NLP, routes messages to purpose-built handlers, calls the primary model, and automatically falls back through OpenRouter (6 free models) and Groq (4 models) if the primary fails.",
+        "fallback_chain": ["Google Gemini 2.5 Flash / Lite", "OpenRouter Free Models (x6)", "Groq — Llama, Qwen, Kimi (x4)"]
+      },
 
       "tech_stack": {
-        "backend": ["Python 3.11", "Django 5.x"],
-        "frontend": ["HTML", "CSS", "JavaScript"],
-        "ai_models": ["Google Gemini", "Multi-Model Fallback System"],
-        "features_api": ["Web Search API", "Voice Recognition", "File Analysis"],
-        "database": ["SQLite"],
-        "deployment": ["Render", "Gunicorn", "Whitenoise"]
+        "backend": ["Python 3.11", "Django 5.2", "Gunicorn"],
+        "frontend": ["Vanilla JavaScript", "CSS", "Font Awesome 6", "Google Fonts (Syne)"],
+        "database": ["PostgreSQL"],
+        "primary_ai": ["Google Gemini 2.5 Flash", "Google Gemini 2.5 Lite"],
+        "ai_gateway": ["OpenRouter (100+ LLMs)"],
+        "ai_fallback": ["Groq"],
+        "nlp": ["Custom Regex Engine (Nlp.py)"],
+        "vector_database": ["Pinecone"],
+        "embeddings": ["gemini-embedding-001 (768-dim)"],
+        "web_search": ["DuckDuckGo (ddgs)", "Wikipedia"],
+        "file_parsing": ["pdfplumber", "pypdf", "python-docx"],
+        "data_analysis": ["pandas", "numpy", "scikit-learn"],
+        "sandboxed_execution": ["asteval"],
+        "encryption": ["cryptography (Fernet)"],
+        "authentication": ["Django Sessions", "Google OAuth 2.0"],
+        "static_files": ["WhiteNoise"],
+        "rate_limiting": ["django-ratelimit"],
+        "deployment": ["Alwaysdata"]
+      }
+    },
+    {
+      "name": "Infinsight",
+      "type": "RAG-Powered AI Data Analytics Module",
+      "part_of": "Hero's AI Platform",
+      "live_url": "https://hero-s-ai.alwaysdata.net/infinsight/",
+      "repository": "github.com/Hudsonmathew1910/Hero-s-AI",
+
+      "features": [
+        "Natural Language Querying over CSV, Excel, and PDF files",
+        "RAG Pipeline with Pinecone Vector Storage",
+        "Semantic Embeddings via gemini-embedding-001 (768-dim)",
+        "Live Pandas Code Generation & Sandboxed Execution",
+        "RFM Customer Analysis",
+        "Time-Series Trend Detection",
+        "Linear Regression Forecasting",
+        "Profit-Discount Correlation Analysis",
+        "Per-User Namespaced Vector Storage",
+        "AI-Generated Human-Readable Analyst Reports"
+      ],
+
+      "overview": "Infinsight is an advanced RAG-powered data analytics sub-module inside Hero's AI. It allows users to upload structured data files and query them using plain English — no coding required. The system parses, embeds, indexes, retrieves, and executes live Pandas code to produce analyst-grade reports.",
+
+      "simple_explanation": "Upload a CSV, Excel, or PDF file and ask questions like 'What is the monthly revenue trend?' or 'Who are the top customers?' — Infinsight runs the analysis and returns a clean, readable report.",
+
+      "problem_solved": "Data analysis traditionally requires Python, SQL, or Excel expertise. Infinsight removes that barrier entirely by letting users ask natural language questions. The AI generates and executes Pandas code behind the scenes and delivers a complete analyst report.",
+
+      "how_it_works": [
+        "User uploads a CSV, Excel, or PDF file",
+        "File is parsed into text chunks (CSV rows → summaries, PDFs → page-level chunks)",
+        "Chunks are embedded using gemini-embedding-001 and stored in Pinecone under a user-specific namespace",
+        "User submits a natural language query",
+        "Relevant chunks are retrieved via semantic similarity search",
+        "Retrieved context + dataset schema are passed to Gemini",
+        "If computation is needed, Gemini generates Python/Pandas code",
+        "Code is executed safely in a sandboxed asteval interpreter",
+        "Gemini interprets the output into a final human-readable analyst report"
+      ],
+
+      "supported_file_types": ["CSV", "Excel (.xlsx)", "PDF"],
+
+      "analysis_types": [
+        "Descriptive Statistics",
+        "RFM Customer Segmentation",
+        "Time-Series Trend Analysis",
+        "Linear Regression Forecasting",
+        "Profit-Discount Correlation"
+      ],
+
+      "tech_stack": {
+        "ai_model": ["Google Gemini 2.5 Flash"],
+        "embeddings": ["gemini-embedding-001 (768-dimensional)"],
+        "vector_database": ["Pinecone (per-user namespaced)"],
+        "data_processing": ["pandas", "numpy", "scikit-learn"],
+        "file_parsing": ["pdfplumber", "pypdf", "openpyxl"],
+        "sandboxed_execution": ["asteval"],
+        "backend": ["Python 3.11", "Django 5.2"]
       }
     },
     {

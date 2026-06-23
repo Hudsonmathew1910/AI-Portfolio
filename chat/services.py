@@ -87,6 +87,86 @@ class PortfolioService:
             return None
         return build_portfolio_summary(data)
 
+    def find_project(self, name: str) -> Optional[Dict[str, Any]]:
+        """
+        Find a project by name (case-insensitive match).
+
+        Args:
+            name: Project name or partial name to search for
+
+        Returns:
+            The project dict if found, otherwise None
+        """
+        data = self.load_data()
+        if not data:
+            return None
+
+        projects = data.get("projects") or []
+        if not isinstance(projects, list):
+            return None
+
+        name_lower = (name or "").strip().lower()
+        for proj in projects:
+            if not isinstance(proj, dict):
+                continue
+            proj_name = proj.get("name", "")
+            if not proj_name:
+                continue
+            if proj_name.strip().lower() == name_lower or name_lower in proj_name.strip().lower():
+                return proj
+
+        return None
+
+    def get_project_links(self, name: str) -> Optional[Dict[str, str]]:
+        """
+        Return available links for a project (live_url, github_url, repository, etc.).
+
+        Args:
+            name: Project name or partial name
+
+        Returns:
+            Dict of link type -> url, or None if project not found
+        """
+        proj = self.find_project(name)
+        if not proj:
+            return None
+
+        links: Dict[str, str] = {}
+        for key in ("live_url", "github_url", "repository", "repo", "url"):
+            val = proj.get(key)
+            if isinstance(val, str) and val:
+                links[key] = val
+
+        return links if links else None
+
+    def list_project_links(self) -> Dict[str, Dict[str, str]]:
+        """
+        Return a mapping of project name to available links for all projects.
+
+        Returns:
+            Dict where keys are project names and values are dicts of link-type->url
+        """
+        data = self.load_data()
+        if not data:
+            return {}
+        projects = data.get("projects") or []
+        out: Dict[str, Dict[str, str]] = {}
+        for proj in projects:
+            if not isinstance(proj, dict):
+                continue
+            name = proj.get("name") or ""
+            if not name:
+                continue
+            links: Dict[str, str] = {}
+            for key in ("live_url", "github_url", "repository", "repo", "url"):
+                val = proj.get(key)
+                if isinstance(val, str) and val:
+                    links[key] = val
+            if links:
+                out[name] = links
+
+        return out
+
 
 class AIService:
     """Service for interacting with OpenRouter AI API."""
