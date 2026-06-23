@@ -171,7 +171,12 @@ def _parse_request_body(request: HttpRequest) -> dict | JsonResponse:
         return body
     
     except json.JSONDecodeError as e:
-        logger.warning("Invalid JSON in request: %s", e)
+        # Log the raw body for debugging malformed requests
+        try:
+            raw = request.body.decode('utf-8', errors='replace')
+        except Exception:
+            raw = repr(request.body)
+        logger.warning("Invalid JSON in request: %s; raw_body=%s", e, raw[:2000])
         return JsonResponse(
             {"error": ERROR_INVALID_JSON},
             status=STATUS_BAD_REQUEST
