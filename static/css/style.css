@@ -103,6 +103,24 @@ body{
     opacity: 0.9;
 }
 
+/* Button-like links used for project/live links */
+.link-btn{
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 4px 6px 0 0;
+    background: var(--trd-bg-color);
+    color: var(--bg-color);
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.link-btn:hover{
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
 /* INPUT AREA */
 .chat-input-area{
     display: flex;

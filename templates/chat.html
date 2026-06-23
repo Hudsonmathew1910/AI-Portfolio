@@ -55,15 +55,34 @@
 
             // Convert plain URLs (with or without protocol) into clickable links
             function linkify(input) {
-                // Regex to match URLs like: https://..., http://..., www.domain.tld/path, domain.tld/path
+                // Regex to match URLs roughly (protocol optional). We'll trim trailing punctuation.
                 const urlRegex = /(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[\w\-\.~:\/?#\[\]@!$&'()*+,;=%]*)?/g;
-                return input.replace(urlRegex, function (match) {
-                    // Avoid linking markdown or HTML (we operate on escaped text so safe)
+                return input.replace(urlRegex, function (raw) {
+                    let match = raw;
+
+                    // Trim trailing punctuation that commonly follows URLs in text
+                    let suffix = '';
+                    while (match.length && ".,;:!?)}]>\")'.includes(match.slice(-1))) {
+                        suffix = match.slice(-1) + suffix;
+                        match = match.slice(0, -1);
+                    }
+
+                    // Trim leading punctuation like opening parens/brackets
+                    let prefix = '';
+                    while (match.length && "([{<'\"`.".includes(match[0])) {
+                        prefix += match[0];
+                        match = match.slice(1);
+                    }
+
+                    if (!match) return raw; // nothing left
+
                     let href = match;
                     if (!/^https?:\/\//i.test(href)) {
                         href = 'https://' + href;
                     }
-                    return `<a href="${href}" target="_blank" rel="noopener noreferrer">${match}</a>`;
+
+                    // Render as a button-like link; keep original surrounding punctuation
+                    return prefix + `<a class="link-btn" href="${href}" target="_blank" rel="noopener noreferrer">${match}</a>` + suffix;
                 });
             }
 
