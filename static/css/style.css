@@ -108,8 +108,8 @@ body{
     display: inline-block;
     padding: 6px 10px;
     margin: 4px 6px 0 0;
-    background: var(--trd-bg-color);
-    color: var(--bg-color);
+    background: var(--main-color); /* Green page color */
+    color: var(--trd-bg-color);
     border-radius: 6px;
     font-weight: 600;
     text-decoration: none;
@@ -119,6 +119,7 @@ body{
 .link-btn:hover{
     opacity: 0.95;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(121,134,69,0.25);
 }
 
 /* INPUT AREA */

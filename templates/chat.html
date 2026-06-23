@@ -58,31 +58,27 @@
                 // Regex to match URLs roughly (protocol optional). We'll trim trailing punctuation.
                 const urlRegex = /(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[\w\-\.~:\/?#\[\]@!$&'()*+,;=%]*)?/g;
                 return input.replace(urlRegex, function (raw) {
-                    let match = raw;
-
-                    // Trim trailing punctuation that commonly follows URLs in text
-                    let suffix = '';
-                    while (match.length && ".,;:!?)}]>\")'.includes(match.slice(-1))) {
-                        suffix = match.slice(-1) + suffix;
-                        match = match.slice(0, -1);
+                    // Use regex to extract optional leading punctuation, the core URL, and trailing punctuation
+                    // leading can be ([{<'"` etc), trailing can be .,;:!?)\]}>
+                    const parts = raw.match(/^([\(\[\{\<\'\"`]*)((?:https?:\/\/)?(?:www\.)?[^\s]+?)([\.,;:!\?\)\}\]>\'\"`]*)$/);
+                    if (!parts) {
+                        return raw;
                     }
 
-                    // Trim leading punctuation like opening parens/brackets
-                    let prefix = '';
-                    while (match.length && "([{<'\"`.".includes(match[0])) {
-                        prefix += match[0];
-                        match = match.slice(1);
-                    }
+                    const prefix = parts[1] || '';
+                    let core = parts[2] || '';
+                    const suffix = parts[3] || '';
 
-                    if (!match) return raw; // nothing left
+                    if (!core) return raw;
 
-                    let href = match;
+                    let href = core;
                     if (!/^https?:\/\//i.test(href)) {
                         href = 'https://' + href;
                     }
 
-                    // Render as a button-like link; keep original surrounding punctuation
-                    return prefix + `<a class="link-btn" href="${href}" target="_blank" rel="noopener noreferrer">${match}</a>` + suffix;
+                    return prefix + `<a class="link-btn" href="${href}" target="_blank" rel="noopener noreferrer">${core}</a>` + suffix;
+                        // Use a friendly label for live/project links and keep the URL in title for access
+                        return prefix + `<a class="link-btn" href="${href}" title="${href}" target="_blank" rel="noopener noreferrer">Go live</a>` + suffix;
                 });
             }
 
