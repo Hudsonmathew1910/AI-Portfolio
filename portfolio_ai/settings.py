@@ -38,19 +38,26 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() in ("1", "true", "yes")
 
+# Build ALLOWED_HOSTS from env; default to localhost. If running on Replit and no
+# ALLOWED_HOSTS is provided, allow all hosts for convenience during testing.
 ALLOWED_HOSTS = [
-    h.strip() for h in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    h.strip() for h in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if h.strip()
 ]
 
+if not ALLOWED_HOSTS:
+    # Replit sets REPL_OWNER / REPL_ID environment variables in its environment.
+    if os.environ.get("REPL_OWNER") or os.environ.get("REPL_ID"):
+        ALLOWED_HOSTS = ["*"]
+
 # HTTPS/SSL Configuration
-# if not DEBUG:
-#     SECURE_SSL_REDIRECT = False
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_COOKIE_SECURE = True
-#     SECURE_HSTS_SECONDS = 31536000  # 1 year
-#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-#     SECURE_HSTS_PRELOAD = True
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # CSRF Configuration
 CSRF_COOKIE_HTTPONLY = True
